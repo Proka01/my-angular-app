@@ -29,7 +29,7 @@ export class LoginComponent {
         console.log(localStorage.getItem('jwtToken'));
 
         // Navigate to the UserList page
-        //this.router.navigate(['/user-list']);
+        this.router.navigate(['/user-list']);
       },
       (error) => {
         console.error('Login failed', error);
