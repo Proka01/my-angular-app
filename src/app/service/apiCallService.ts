@@ -36,5 +36,12 @@ export class ApiCallServiceService {
         const headers = this.getHeaders();
         console.log(`${this.baseUrl}/users/${userId}`);
         return this.http.delete<any>(`${this.baseUrl}/users/${userId}`, { headers });
-      }
+    }
+
+    createUser(newUser: any): Observable<any> {
+        const headers = this.getHeaders();
+        console.log(newUser);
+        console.log(`${this.baseUrl}/users`);
+        return this.http.post(`${this.baseUrl}/users`, newUser, {headers});
+    }
 }
