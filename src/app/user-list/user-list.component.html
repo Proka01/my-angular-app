@@ -6,7 +6,6 @@
         <th>First Name</th>
         <th>Last Name</th>
         <th>Permissions</th>
-        <!-- Add more columns as needed -->
         <th>Actions</th>
       </tr>
     </thead>
@@ -17,9 +16,9 @@
         <td><input [(ngModel)]="user.firstName" /></td>
         <td><input [(ngModel)]="user.lastName" /></td>
         <td><input [(ngModel)]="user.permissions" /></td>
-        <!-- Add more columns as needed -->
         <td>
           <button (click)="updateUser(user)">Update</button>
+          <button (click)="deleteUser(user.userId)">Delete</button>
         </td>
       </tr>
     </tbody>

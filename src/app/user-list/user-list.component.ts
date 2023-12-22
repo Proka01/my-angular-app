@@ -38,4 +38,17 @@ export class UserListComponent implements OnInit {
       }
     );
   }
+
+  deleteUser(userId: number): void {
+    this.apiCallService.deleteUser(userId).subscribe(
+      () => {
+        console.log('User deleted successfully');
+        this.loadUsers(); // Reload the users after deleting
+      },
+      (error) => {
+        console.error('Error deleting user', error);
+      }
+    );
+  }
+  
 }
