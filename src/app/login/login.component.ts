@@ -20,11 +20,16 @@ export class LoginComponent {
     this.apiCallService.loginUser(credentials).subscribe(
       (response) => {
         // Assuming the JWT is returned in the 'token' property of the response
+        console.log(response)
         const token = response.jwt;
         console.log(token);
 
         // Save the token in local storage
         localStorage.setItem('jwtToken', token);
+        localStorage.setItem('createPerm', response.createUsersPermission);
+        localStorage.setItem('readPerm', response.readUsersPermission);
+        localStorage.setItem('deletePerm', response.deleteUsersPermission);
+        localStorage.setItem('updatePerm', response.updateUsersPermission);
 
         console.log(localStorage.getItem('jwtToken'));
 

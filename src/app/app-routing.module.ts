@@ -3,7 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { CreateUserComponent } from './create-user/create-user.component';
-import { AuthGuard } from './auth.guard';
+import { CreateGuard } from './canCreate.guard';
+import { ReadGuard } from './canRead.guard';
+import { DeleteGuard } from './canDelete.guard';
+import { UpdateGuard } from './canUpdate.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -11,12 +14,12 @@ const routes: Routes = [
   {
     path: 'user-list',
     component: UserListComponent,
-    //canActivate: [AuthGuard], // Add this guard to the route
+    canActivate: [ReadGuard]//,DeleteGuard,UpdateGuard], // Add this guard to the route
   },
   {
     path: 'createUser',
     component: CreateUserComponent,
-    //canActivate: [AuthGuard], // Add this guard to the route
+    canActivate: [CreateGuard], // Add this guard to the route
   }
 ];
 
